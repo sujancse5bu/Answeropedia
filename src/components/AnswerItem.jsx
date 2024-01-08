@@ -1,18 +1,23 @@
 import { useState, useEffect } from "react";
 import UpDown from './UpDown'
 import { selectAuthState, setAuthState } from "../store/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 // import { useAppSelector, useAppDispatch } from '../store/hooks';
 
 const AnswerItem = ({answer}) => {
-//  console.log(answer)
+  //  console.log(answer)
+  
+  const dispatch = useDispatch()
+  const { authState } = useSelector((state) => state.authReducer)
+
 
 
   useEffect(() => {
-    console.log('authState changed: ', selectAuthState)
-  }, [selectAuthState])
+    console.log('authReducer changed: ', authState)
+  }, [authState])
 
   return (
-    <div onClick={() => dispatch(setAuthState(!selectAuthState))}>
+    <div onClick={() => dispatch(setAuthState(!authState))} style={{backgroundColor: 'red'}}>
       <div className="answer p-2 my-4 border rounded-md">
         <div className="ans-author flex flex-row items-start justify-start">
           <div className="h-8 w-8 border bg-[#1E3A8A] text-white font-medium rounded-full text-center align-middle">
