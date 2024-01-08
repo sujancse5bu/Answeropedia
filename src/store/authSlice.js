@@ -10,6 +10,7 @@ export const authSlice = createSlice({
   reducers: {
     // Action to set the authentication status
     setAuthState: (state, action) => {
+      console.log('setAuthState reducer called')
       return {
         authState: action.payload
       }

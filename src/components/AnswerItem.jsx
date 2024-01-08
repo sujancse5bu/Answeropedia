@@ -17,7 +17,13 @@ const AnswerItem = ({answer}) => {
   }, [authState])
 
   return (
-    <div onClick={() => dispatch(setAuthState(!authState))} style={{backgroundColor: 'red'}}>
+    <div
+      onClick={() => {
+        console.log('log before dispatch')
+        dispatch(setAuthState(!authState))
+      }}
+      style={{ backgroundColor: 'red' }}
+    >
       <div className="answer p-2 my-4 border rounded-md">
         <div className="ans-author flex flex-row items-start justify-start">
           <div className="h-8 w-8 border bg-[#1E3A8A] text-white font-medium rounded-full text-center align-middle">
